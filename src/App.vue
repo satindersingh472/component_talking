@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <display-users v-for="user in users" :key="user[`id`]" :user="user" >
+    </display-users>
+<display-clicked></display-clicked>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import DisplayClicked from "@/components/displayClicked.vue";
+import DisplayUsers from "@/components/displayUsers.vue"
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    DisplayUsers,
+    DisplayClicked,
+  },
+  data() {
+    return {
+      users: [
+        {
+          name: `sat`,
+          id: 1,
+          status: `logged_in`,
+        },
+        {
+          name: `jamm`,
+          id: 2,
+          status: `logged_out`,
+        },
+        {
+          name: `nav`,
+          id: 3,
+          status: `revoked`,
+        },
+      ],
+    };
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
