@@ -11,7 +11,7 @@
         },
         methods: {
             send_user() {
-                    this.$emit(`user_clicked`, this.user);
+                    this.$root.$emit(`user_clicked`, this.user);
                 
             }
         },

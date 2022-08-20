@@ -24,7 +24,7 @@ export default {
           status: `logged_in`,
         },
         {
-          name: `jamm`,
+          name: `nav`,
           id: 2,
           status: `logged_out`,
         },

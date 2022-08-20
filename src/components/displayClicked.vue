@@ -1,20 +1,27 @@
 <template>
-   <div @user_clicked="new_function">
-          <h2 v-if="the_word !== undefined">no error</h2>
-          <h2 v-else-if="the_word === undefined">there is nothing to show </h2>
+  <div v-if="users !== undefined">
+    <div v-for="user in users" :key="user[`id`]">
+      <button>{{ user[`name`] }}</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    this.$root.$on(`user_clicked`, this.new_function);
+  },
   methods: {
-    new_function(user) {
-      this.the_word = user;
+    new_function(random_user) {
+        if (this.users[`id`].includes(random_user[`id`]) === false){
+          this.users.push(random_user);
+
+        }
     },
   },
   data() {
     return {
-      the_word: undefined
+      users: [],
     };
   },
 };
