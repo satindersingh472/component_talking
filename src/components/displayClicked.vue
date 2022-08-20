@@ -13,10 +13,11 @@ export default {
   },
   methods: {
     new_function(random_user) {
-        if (this.users[`id`].includes(random_user[`id`]) === false){
-          this.users.push(random_user);
-
+      for (let i = 0; i < this.users.length; i++) {
+        if (this.users[i][`id`] !== random_user[i][`id`]) {
+          this.users.push(random_user[i]);
         }
+      }
     },
   },
   data() {
